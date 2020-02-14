@@ -1,0 +1,32 @@
+  <h1>Please Select GPA to Sort below: </h1>
+
+<form action="/sortProfessorByGPA" method="GET" id="sortByGPAForm">
+  {{!-- Grade Received --}}
+  <div class="form-group">
+    <label class="control-label col-sm-2">Grade Received:</label>
+    <div class="col-sm-10">
+
+      {{selectorDisplayer gradeObj dataAttribs='{"multiple" : false, "name":"sortByGPA", "id":"sortByGPAId", "formName":"sortByGPAForm"}'}}
+
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <button type="submit" class="btn btn-default">Submit</button>
+    </div>
+  </div>
+</form>
+<article id="article-container2">
+
+  <h1>Professor Review with {{gradeObj[sortByGPA]}} GPA:</h1>
+
+  {{#if data}}
+    {{> ListOfProfessor parameter=data }}
+  {{else}}
+    {{#if sortByGPA}}
+      <h1>Sory, There are no data available to sorting with {{gradeObj[sortByGPA]}} GPA. Select Different <Strong>GPA</Strong>
+    {{/if}}
+  {{/if}}
+
+
+</article>

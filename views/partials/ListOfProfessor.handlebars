@@ -1,0 +1,81 @@
+{{#if data}}
+<ul id="listOfProfessor">
+    {{#each data}}
+
+   
+    <li>
+         <h2>{{this.reviews.length}} Student Ratings</h2>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-3" style="border-right: solid black 1px;background-color:  #A9A9A9;">
+                    <h1 class="professorName">Professor Name: {{this.name}}</h1>
+                    <h2>Over All Rating: {{this.overAllRating}}</h2>
+                    <h2>Over All GPA: {{this.overAllGPA}}</h2>
+
+                </div>
+                <div class="col-sm-9" style="background-color:#A9A9A9;">
+                    <h6>Tags for this Professor</h6>
+                    {{tagDisplayer this.overAllTags}}
+                </div>
+            </div>
+        </div>
+
+        {{#each this.reviews}} <br>
+        <div class="container-fluid">
+
+            <div class="row">
+                <div class="col-sm-4" style="border-right: solid black 1px;background-color:  #A9A9A9;">
+                    <p>{{dateDisplayer this.timeStamp}}</p>
+                    <p>Course: {{this.course}}</p>
+
+                    <p>Semester: {{semesterDisplayer this.semester}}</p>
+                    <p>Rating: {{this.rating}}</p>
+                    <p>Grade Received: {{this.gradeReceived}}</p>
+                </div>
+                <div class="col-sm-8" style="background-color: #E6E6E1">
+                    {{#each this.tags}}
+                    <span style="padding: 2px; margin-right: 3px; background-color: gray">{{this}}</span>
+                    {{/each}} <br>
+                    <p>Comment: {{this.comment}}</p>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+        <br>
+        <hr>
+    </li>
+
+
+
+    {{/each}}
+</ul>
+{{else}}
+<h1>Sory :( There are no data available for now. Go back to<a href="/">Home</a></h1>
+{{/if}}
+
+<script>
+
+    function search() {
+        // Declare variables
+        var input, filter, a, i, ul, li, txtValue
+        input = document.getElementById('searchProfessorName');
+        filter = input.value.toUpperCase();
+        ul = document.getElementById("listOfProfessor");
+        li = ul.getElementsByTagName('li');
+
+        // Loop through all list items, and hide those who don't match the search query
+
+        for (i = 0; i < li.length; i++) {
+
+            console.log(li[i])
+            a = li[i].getElementsByClassName("professorName")[0];
+            console.log(a)
+            txtValue = a.textContent || a.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                li[i].style.display = "";
+            } else {
+                li[i].style.display = "none";
+            }
+        }
+    }
+</script>

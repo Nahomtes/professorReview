@@ -1,0 +1,99 @@
+<h1>Create New Professor Review!</h1>
+<article>
+  <form method="POST" id="addReviewForm" class="form-horizontal" action="/addReview">
+
+    {{!-- Professor Name --}}
+    <div class="form-group">
+      <label class="control-label col-sm-2">Professor Full Name:</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" name="professorName" id="professorName" placeholder="Enter Full Name">
+      </div>
+    </div>
+    {{!-- Department Name --}}
+    <div class="form-group">
+      <label class="control-label col-sm-2">Department:</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" name="departmentName" id="department" placeholder="XXXX">
+      </div>
+    </div>
+
+    {{!-- Course --}}
+    <div class="form-group">
+      <label class="control-label col-sm-2">Course:</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" name="courseToReview" id="course" placeholder="XXXX000">
+      </div>
+    </div>
+    {{!-- Year --}}
+    <div class="form-group">
+      <label class="control-label col-sm-2">Year:</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" name="selectedYear" id="dateDisplayer" placeholder="YYYY">
+      </div>
+    </div>
+
+
+    {{!-- Semester --}}
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="pwd">Select School Year:</label>
+      <div class="col-sm-10">
+        <select class="form-control" name="selectedSemester" id="selectSemester">
+          <option value="08">Fall</option>
+          <option value="12">Winter</option>
+          <option value="08">Spring</option>
+          <option value="05">Summer</option>
+        </select>
+      </div>
+    </div>
+
+    {{!-- Rating --}}
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="pwd">Rating:</label>
+      <div class="col-sm-10">
+        <p>Please select your rating:</p>
+        <input type="radio" name="ratingValue" value="1">1
+        <input type="radio" name="ratingValue" value="2">2
+        <input type="radio" name="ratingValue" value="3">3
+        <input type="radio" name="ratingValue" value="4">4
+        <input type="radio" name="ratingValue" value="5">5
+      </div>
+    </div>
+
+
+
+
+    {{!-- tags --}}
+    <div class="form-group">
+      <label class="control-label col-sm-2">Mutiple select list (hold shift to select more than one):</label>
+      <div class="col-sm-10" id="tagDiv">
+
+        {{selectorDisplayer tagObj dataAttribs='{"multiple" : true, "name":"selectedTags", "id":"tagList", "formName":"addReviewForm"}'}}
+
+      </div>
+
+    </div>
+
+    {{!-- Comment/Review --}}
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="pwd">Comment:</label>
+      <div class="col-sm-10">
+        <textarea class="form-control" name="selectedComment" rows="5" id="comment"></textarea>
+      </div>
+    </div>
+
+    {{!-- Grade Received --}}
+    <div class="form-group">
+      <label class="control-label col-sm-2">Grade Received:</label>
+      <div class="col-sm-10">
+        {{selectorDisplayer gradeObj dataAttribs='{"multiple" : false, "name":"gradeReceived", "id":"gradeReceivedId", "formName":"addReviewForm"}'}}
+
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <button type="submit" class="btn btn-default">Submit</button>
+      </div>
+    </div>
+  </form>
+</article>

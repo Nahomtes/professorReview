@@ -1,0 +1,13 @@
+<div>
+    Type professor Name <input type="text" name="autoSearch" id="searchProfessorName" onkeyup="search()">
+</div>
+<h1>Listing All the data that is in our DataBase</h1>
+{{!-- {"name":"William Gasarch","semester":["201901","201908","202001"],
+"courses":["CMSC250H","CMSC452","CMSC456","ENEE456","MATH456","CMSC858R","MATH858R"],
+"department":["MATH"],"overAllRating":-1,"overAllTags":{},"review":[]},
+{"name":"William Gonch","semester":["201901","201908"],"courses":["ENGL255","ENGL101S","ENGL222"],
+"department":["ENGL"],"overAllRating":-1,"overAllTags":{},"review":[]} --}}
+<article id="article-container2">
+    {{> ListOfProfessor parameter=data }}
+    
+</article>
