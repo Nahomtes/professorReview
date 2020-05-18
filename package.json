@@ -17,7 +17,6 @@
         "express-handlebars": "^3.1.0",
         "handlebars": "^4.7.6",
         "handlebars-intl": "^1.1.2",
-        "jQuery": "^1.7.4",
         "jquery": "^3.5.0",
         "jsdom": "^15.2.0",
         "morgan": "^1.8.1"
